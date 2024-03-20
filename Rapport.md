@@ -47,3 +47,57 @@ Ces courbes peuvent énormément varier en fonction du paramétrage qu'on fait  
 <img src="https://raw.githubusercontent.com/LucasLeiner/imagesRenduMaths/main/3.png"   width="371px"  height="287px"  style="object-fit:cover"/><img src="https://raw.githubusercontent.com/LucasLeiner/imagesRenduMaths/main/4.png"   width="383.5px"  height="284.496px"  style="object-fit:cover"/>
 
 
+## **Théorie, présentation du modèle S.I.R.**
+
+Le modèle SIR est une méthode mathématique utilisée en épidémiologie pour simuler la propagation des maladies infectieuses au sein d'une population.
+
+Ce modèle définit une représentation d'une population N pouvant être classée en 3 catégories, sain \(S\), infecté \(I\), rétabli \(R\). Les personnes saines peuvent devenir infectées, et les personnes infectées peuvent devenir rétablies.
+
+Ces changements d'états sont définis par deux paramètres : β  qui implique la probabilité de passer de l'état sain à infecté d'une personne qui est entrée en contact avec une autre déjà infectée et λ qui représente la probabilité de passer de l'état infecté à rétabli en moyenne.
+
+<img src="https://raw.githubusercontent.com/LucasLeiner/imagesRenduMaths/main/5.png"   width="457px"  height="110px"  style="object-fit:cover"/>
+
+Pour formuler mathématiquement les dynamiques de ce modèle, il faut utiliser des formules d'équations différentielles. En l’occurrence, nous nous intéressons ici à trois formules que l'on va représenter par trois courbes dans le but d'avoir une représentation des différents états au fil du temps.
+
+<u>Variation du nombre de personnes saines au fil du temps</u> :
+
+$
+\frac{dS}{dt} = - \beta \frac{SI}{N}
+$
+
+<u>Variation du nombre de personnes infectés</u> :
+
+$\frac{dI}{dt} = \beta \frac{SI}{N} - \lambda I$
+
+<u>Variation du nombre de personnes rétablies </u>:
+
+$\frac{dR}{dt} = \lambda I$
+
+Avec :
+
+S : Pour le nombre de personnes saines.
+
+I : Pour le nombre de personnes infectées.
+
+R : Pour le nombre de personnes rétablies.
+
+N : Pour la population totale $(S+I+R)$.
+
+β : Le taux de transmission.
+
+λ : Le taux de rétablissement.
+
+Il est donc possible de représenter les trois équations précédentes en trois courbes selon les valeurs définies des paramètres β et λ.
+
+<img src="https://raw.githubusercontent.com/LucasLeiner/imagesRenduMaths/main/6.png"   width="473px"  height="317px"  style="object-fit:cover"/>
+
+Le modèle SIR peut également être représenté de manière plus complexe, en effet le premier paramètre que l'on pourrait ajouter serait le taux de mortalité μ qui définit la probabilité pour une personne infectée de mourir.
+
+Ce paramètre est généralement très minime dans une représentation du modèle SIR  car il est souvent peu important dans une épidémie.
+
+Cependant il n'est pas négligeable et peu avoir un impact sur les autres états.
+
+On peut notamment le voir par la courbe de la population totale qui baisse au fil du temps.
+
+<img src="https://raw.githubusercontent.com/LucasLeiner/imagesRenduMaths/main/7.png"   width="428px"  height="307px"  style="object-fit:cover"/>
+
