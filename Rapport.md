@@ -1,6 +1,6 @@
 # **Automates cellulaires et modèle SIR \- GA2\-7 \- Cazals Mathias \- Leiner Lucas**
 
-## <span style='font-size:x-large'>**Présentation du projet**</span>
+## **Présentation du projet**
 
 Dans ce projet, nous avons étudié la propagation d'un virus au sein d'une population en utilisant des automates cellulaires. 
 
@@ -8,7 +8,7 @@ Pour cela, nous avons simulé la diffusion du virus dans une grille de pixels po
 
 Pour réaliser cette comparaison nous avons donc créer deux codes différents, un pour générer les automates cellulaires et un autre pour adapter en python le modèle SIR. Dans les deux cas, nous obtenons un graphique composé de plusieurs courbes décrivant l'évolution de l'état de la population. Ainsi cela offre des perspectives d'analyse de notre simulation et de sa précision par rapport à un modèle mathématique fiable.
 
-## <span style='font-size:x-large'>**Représentation visuelle**</span>  
+## **Représentation visuelle**
 
 ### <span style='font-size:large'>Représentation des automates cellulaires</span>
 
@@ -137,40 +137,46 @@ Nous avons aussi dans cette boucle une boucle qui parcourt le tableau et qui aff
 
 <img src="https://raw.githubusercontent.com/LucasLeiner/imagesRenduMaths/main/11.png"   width="514px"  height="182px"  style="object-fit:cover"/>
 
+````
 import pygame
 import random
 import matplotlib.pyplot as plt
 
 running = True
 
+## Parameters
+# Displaying
 frameDelay = 1
 WindowSize = 500
 PixelSize = 5
 GridSize = WindowSize // PixelSize
 
+# Pygame window initialisation
 pygame.init()
 window = pygame.display.set_mode((WindowSize, WindowSize))
 pygame.display.set_caption("Virus Propagation")
 
-
+# Colors
 White = (255, 255, 255)
 Green = (0, 255, 0)
 Grey = (125, 125, 125)
 Red = (255, 0, 0)
 
-
+# Grid definition
 grid = [[0 for i in range(GridSize)] for i in range(GridSize)]
 contaminedTime = [[0 for i in range(GridSize)] for i in range(GridSize)]
 
-
+# First infected définition in the middle of the grid
 initialInfected = (GridSize // 2, GridSize // 2)
 grid[initialInfected[0]][initialInfected[1]] = 1
 
+# Probability
 PropagationProb = 0.5
 contaminationTime = 14
 deathProbability = 0.001
 
 
+#Propagation
 def virusPropagation():
     global grid
     nextGrid = [[0 for i in range(GridSize)] for i in range(GridSize)]
@@ -207,7 +213,8 @@ def endVerification():
                 infectedCount += 1
     if infectedCount == 0:
         return False
-        
+
+
 sainCountTotal = []
 infectedCountTotal = []
 imunisedCountTotal = []
@@ -236,7 +243,7 @@ while running:
     infectedCountTotal.append(infectedCount)
     imunisedCountTotal.append(imunisedCount)
 
-
+    # Display
     window.fill(White)
     for x in range(GridSize):
         for y in range(GridSize):
@@ -255,6 +262,7 @@ while running:
     pygame.display.flip()
     pygame.time.delay(frameDelay)
 
+# Display the results
 print("Stats :")
 print(sainCountTotal)
 print(infectedCountTotal)
@@ -271,19 +279,19 @@ plt.show()
 
 pygame.quit()
 
+````
 
-
-<span style='font-size:x-large'>**Notre reproduction du modèle SIR**</span> 
+## <span style='font-size:x-large'>**Notre reproduction du modèle SIR**</span> 
 
 Ce code est donc une adaptation du modèle mathématique SIR, le but est donc de reproduire les différentes courbes qui représentent l'évolution des états de la population.
 
-<span style='font-size:large'>Initialisation</span>
+### <span style='font-size:large'>Initialisation</span>
 
 Ainsi dans ce code, on va dans un premier temps initialiser les paramètres du modèle SIR en prenant en compte la population totale\(N\), le nombre initial d'individus infectés, le taux de transmission\(β\), le taux de rétablissement\(λ\) et de mortalité\(μ\).
 
 <img src="https://raw.githubusercontent.com/LucasLeiner/imagesRenduMaths/main/12.png"   width="280px"  height="217px"  style="object-fit:cover"/>
 
-<span style='font-size:large'>Simulation du modèle SIR</span>
+### <span style='font-size:large'>Simulation du modèle SIR</span>
 
 Pour la simulation du SIR, on va donc définir un nombre de jours pour la durée d'expérience. En effet, contrairement aux automates cellulaires qui s'arrêtent quand la grille est pleine, on doit ici définir une limite qui va constituer notre nombre d'itérations.
 
@@ -291,13 +299,13 @@ On applique donc les équations qui constituent les variations des états de la 
 
 <img src="https://raw.githubusercontent.com/LucasLeiner/imagesRenduMaths/main/13.png"   width="796px"  height="150px"  style="object-fit:cover"/>
 
-<span style='font-size:large'>Affichage du résultat graphique</span>
+### <span style='font-size:large'>Affichage du résultat graphique</span>
 
 Enfin, on peut visualiser les courbes et afficher les résultats de la simulation par rapport aux paramètres qu'on a défini.
 
 <img src="https://raw.githubusercontent.com/LucasLeiner/imagesRenduMaths/main/14.png"   width="369px"  height="172px"  style="object-fit:cover"/>
 
-
+````
 import matplotlib.pyplot as plt
 
 # SIR parameters
@@ -339,11 +347,11 @@ plt.title('Simulation du modèle SIR ')
 plt.legend()
 plt.show()
 
+````
 
+## <span style='font-size:x-large'>**Analyse et interprétation des résultats**</span> 
 
-<span style='font-size:x-large'>**Analyse et interprétation des résultats**</span> 
-
-<span style='font-size:large'>Analyse de modélisation du SIR</span>
+### <span style='font-size:large'>Analyse de modélisation du SIR</span>
 
 La reproduction du modèle SIR en python nous permet donc de comprendre et analyser les mécanismes fondamentaux de la propagation virale au sein d'une population.
 
@@ -367,7 +375,7 @@ On remarque que ce paramètre a lui aussi un impact majeur sur l'évolution des 
 
 Cela souligne l'importance du taux de guérison dans la gestion et la modération de la propagation d'un virus au sein d'une population qui peut être par exemple amélioré avec des vaccins ou des confinements.
 
-<span style='font-size:large'>Comparaison du modèle d'automates cellulaires et du modèle SIR</span>
+### <span style='font-size:large'>Comparaison du modèle d'automates cellulaires et du modèle SIR</span>
 
 Les deux codes que nous avons réalisés proposent donc tous les deux une simulation de propagation d'un virus au sein d'une population. Pourtant on peut y observer des différences dans la réalisation notamment car l'un est implémenté avec des automates cellulaires et l'autre un modèle mathématique.
 
@@ -388,7 +396,7 @@ On a donc maintenant une équation différentielle linéaire du premier ordre de
 Ainsi on peut expliquer pourquoi la courbe de croissance des personnes infectées semble suivre une tendance exponentielle en fonction du temps avant d'atteindre son pic.
 
 
-<span style='font-size:x-large'>**Problèmes et incohérences**</span> 
+## <span style='font-size:x-large'>**Problèmes et incohérences**</span> 
 
 Notre modèle de simulation de propagation de virus se base sur des automates cellulaires, et de ce fait nous n'avons pas pu obtenir des résultats semblables sur la courbe de la propagation avec le modèle SIR.
 
@@ -405,7 +413,7 @@ Ainsi en baissant beaucoup le taux de propagation ainsi que la durée de la mala
 <img src="https://raw.githubusercontent.com/LucasLeiner/imagesRenduMaths/main/27.png"   width="248.496px"  height="267.488px"  style="object-fit:cover"/><img src="https://raw.githubusercontent.com/LucasLeiner/imagesRenduMaths/main/28.png"   width="381.484px"  height="263.496px"  style="object-fit:cover"/>
 
 
-<span style='font-size:x-large'>**Sources**</span> 
+## <span style='font-size:x-large'>**Sources**</span> 
 
 [https://deptinfo\-ensip.univ\-poitiers.fr/ENS/doku/doku.php/tp:python:epidemie](https://deptinfo-ensip.univ-poitiers.fr/ENS/doku/doku.php/tp:python:epidemie) 
 
