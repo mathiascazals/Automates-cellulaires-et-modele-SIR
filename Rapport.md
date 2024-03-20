@@ -1,6 +1,6 @@
-<span style='font-size:xx-large'>**Automates cellulaires et modèle SIR \- GA2\-7 \- Cazals Mathias \- Leiner Lucas**</span>
+# **Automates cellulaires et modèle SIR \- GA2\-7 \- Cazals Mathias \- Leiner Lucas**
 
-<span style='font-size:x-large'>**Présentation du projet**</span>
+## <span style='font-size:x-large'>**Présentation du projet**</span>
 
 Dans ce projet, nous avons étudié la propagation d'un virus au sein d'une population en utilisant des automates cellulaires. 
 
@@ -8,9 +8,9 @@ Pour cela, nous avons simulé la diffusion du virus dans une grille de pixels po
 
 Pour réaliser cette comparaison nous avons donc créer deux codes différents, un pour générer les automates cellulaires et un autre pour adapter en python le modèle SIR. Dans les deux cas, nous obtenons un graphique composé de plusieurs courbes décrivant l'évolution de l'état de la population. Ainsi cela offre des perspectives d'analyse de notre simulation et de sa précision par rapport à un modèle mathématique fiable.
 
-<span style='font-size:x-large'>**Représentation visuelle**</span>  
+## <span style='font-size:x-large'>**Représentation visuelle**</span>  
 
-<span style='font-size:large'>Représentation des automates cellulaires</span>
+### <span style='font-size:large'>Représentation des automates cellulaires</span>
 
 Pour ce projet, nous avons choisis les automates cellulaires pour leur côté visuel et leur capacité à simuler des phénomènes réels de manière pertinente. Cette approche nous permet d'étudier la dynamique de la propagation d'une maladie tout en la rendant applicable à des situations concrètes. 
 
@@ -32,7 +32,7 @@ En effet, sur cette grille il y a 10 000 pixels soit une représentation 50 fois
 
 Dans ce modèle, chaque pixel représente une personne et peut être dans l'un des quatre états distingués par une couleur : blanc l'état sain, vert pour l'état infecté, gris pour l'état rétabli et rouge pour mort. Au départ, à la manière d'un virus, une seule personne est infectée et se trouve au centre de la grille. Au fur et à mesure que les images de la grille se rafraîchissent, de nouvelles personnes en contact avec l'infectée peuvent être contaminées à leur tour, prenant la couleur verte. Ensuite, après avoir été malade, une personne passe à l'état de rétablissement, symbolisé par la couleur grise et peut décéder donc devenir rouge en fonction des paramètres définis défini.
 
-<span style='font-size:large'>Représentation graphique</span>
+### <span style='font-size:large'>Représentation graphique</span>
 
 Ainsi, que ce soit dans le cas de la représentation de la diffusion du virus par automate cellulaire ou par le modèle SIR, nous avons deux graphiques différents. Nous avons pour cela employé la bibliothèque matplotlib pour étudier sous forme graphique l'évolution de l'état des personnes de la population et en fonction des paramètres définis comme le taux de propagation ou l'indicateur de rétablissement.
 
